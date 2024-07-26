@@ -41,6 +41,7 @@ class HomeScreen extends StatelessWidget {
         "assets/images/ic_fab_help.png",
       ),
       initialPosition: const DragballPosition.defaultPosition(),
+      icon: SizedBox.shrink(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xffFF4747),
@@ -392,10 +393,21 @@ class CustomBottomAppBar extends StatelessWidget {
           children: [
             Spacer(),
             IconButton(
-              icon: const Icon(
-                Icons.home,
-                color: Colors.orange,
-                size: 40,
+              icon: ShaderMask(
+                blendMode: BlendMode.srcIn,
+                shaderCallback: (Rect bounds) => const LinearGradient(
+                  colors: [
+                    Colors.yellow,
+                    Colors.deepOrange,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ).createShader(bounds),
+                child: const Icon(
+                  Icons.home,
+                  color: Colors.orange,
+                  size: 40,
+                ),
               ),
               onPressed: () {
                 // Handle home button press
@@ -405,10 +417,21 @@ class CustomBottomAppBar extends StatelessWidget {
               flex: 2,
             ),
             IconButton(
-              icon: const Icon(
-                Icons.person,
-                color: Colors.orange,
-                size: 40,
+              icon: ShaderMask(
+                blendMode: BlendMode.srcIn,
+                shaderCallback: (Rect bounds) => const LinearGradient(
+                  colors: [
+                    Colors.yellow,
+                    Colors.deepOrange,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ).createShader(bounds),
+                child: const Icon(
+                  Icons.person,
+                  color: Colors.orange,
+                  size: 40,
+                ),
               ),
               onPressed: () {
                 // Handle profile button press
