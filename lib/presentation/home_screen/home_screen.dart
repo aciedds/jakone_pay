@@ -5,7 +5,6 @@ import 'package:jakone_pay/presentation/widgets/balance_card.dart';
 import 'package:jakone_pay/presentation/widgets/circle_gradient_button.dart';
 import 'package:jakone_pay/presentation/widgets/event_carousel_item.dart';
 import 'package:jakone_pay/presentation/widgets/gradient_button.dart';
-import 'package:jakone_pay/presentation/widgets/image_button.dart';
 import 'package:jakone_pay/presentation/widgets/menu_item.dart';
 import 'package:jakone_pay/presentation/widgets/place_carousel_item.dart';
 import 'package:jakone_pay/presentation/widgets/section_divider.dart';
@@ -41,7 +40,7 @@ class HomeScreen extends StatelessWidget {
       ball: Image.asset(
         "assets/images/ic_fab_help.png",
       ),
-      initialPosition: DragballPosition.defaultPosition(),
+      initialPosition: const DragballPosition.defaultPosition(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xffFF4747),
@@ -286,9 +285,9 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Image.asset("assets/images/ic_section_place.png"),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                       child: SizedBox(
                         height: MediaQuery.of(context).size.height * .3,
@@ -355,11 +354,11 @@ class HomeScreen extends StatelessWidget {
             ),
           ]),
         ),
-        bottomNavigationBar: CustomBottomAppBar(),
+        bottomNavigationBar: const CustomBottomAppBar(),
         floatingActionButton: CircleGradientButton(
           size: 100,
           onPressed: () {},
-          child: Image.asset("assets/images/ic_qris.png"),
+          child: Image.asset("assets/images/ic_qris.png", fit: BoxFit.fill),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
@@ -390,20 +389,32 @@ class CustomBottomAppBar extends StatelessWidget {
           ],
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Spacer(),
             IconButton(
-              icon: Icon(Icons.home, color: Colors.orange),
+              icon: const Icon(
+                Icons.home,
+                color: Colors.orange,
+                size: 40,
+              ),
               onPressed: () {
                 // Handle home button press
               },
             ),
+            Spacer(
+              flex: 2,
+            ),
             IconButton(
-              icon: Icon(Icons.person, color: Colors.orange),
+              icon: const Icon(
+                Icons.person,
+                color: Colors.orange,
+                size: 40,
+              ),
               onPressed: () {
                 // Handle profile button press
               },
             ),
+            Spacer(),
           ],
         ),
       ),
